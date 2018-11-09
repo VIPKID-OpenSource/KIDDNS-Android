@@ -15,18 +15,19 @@ VKDNS是vipkid移动端开发的基于阿里HttpDns的Java层全局替换方案�
 
 #### Gradle接入
 
-在项目gradle中配置阿里云maven仓库。
+在项目gradle中配置阿里云maven仓库,以及jitpack maven仓库
 
 ```
         maven {
             url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
         }
+        maven { url 'https://jitpack.io' }
 ```
 
 然后接入lib库。
 
 ```
-TODO
+ implementation 'com.github.VIPKID-OpenSource:KIDDNS-Android:last-release'
 ```
 
 #### 使用
