@@ -17,6 +17,8 @@ import java.util.List;
 
 public class Constants {
 
+  public static final String TEST_ACCOUNT_ID = "144043";
+  public static final String TEST_SECURITY_KEY = "e69e5fd5bb461d2743d385eef0b85852";
   public static List<String> TEST_HOSTS =
       new ArrayList<>(Arrays.asList(
           "192.168.0.1",
