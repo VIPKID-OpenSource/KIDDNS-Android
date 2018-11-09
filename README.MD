@@ -34,8 +34,8 @@ VKDNS是vipkid移动端开发的基于阿里HttpDns的Java层全局替换方案�
 
 ```
     AliHttpDnsStrategy aliHttpDnsStrategy =
-        new AliHttpDnsStrategy.Builder(this, "144043")
-            .securityKey("e69e5fd5bb461d2743d385eef0b85852")
+        new AliHttpDnsStrategy.Builder(this, Constants.TEST_ACCOUNT_ID)
+            .securityKey(Constants.TEST_SECURITY_KEY)
             .preResolveHosts(Constants.TEST_HOSTS)
             .cachedIPEnabled(true)
             .expiredIPEnabled(true)
