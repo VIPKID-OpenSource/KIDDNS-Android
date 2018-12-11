@@ -23,6 +23,11 @@ public final class HttpDnsServiceProvider {
 
   private static HttpDnsServiceProvider instance;
 
+  static {
+    System.loadLibrary("vHook");
+    System.loadLibrary("vkdns");
+  }
+
   public static HttpDnsServiceProvider getInstance(){
     if (instance == null) {
       throw new NullPointerException("must init HttpDnsServiceProvider");
@@ -53,7 +58,8 @@ public final class HttpDnsServiceProvider {
   private HttpDnsServiceProvider(HttpDnsStrategy strategy,HttpDnsMonitor monitor) {
     mHttpDnsStrategy = strategy;
     mMonitor = monitor;
-    hookOsInterface();
+//    hookOsInterface();
+    hook();
   }
 
   public void setBlackAndWhiteList(List<String> blackList,List<String> whiteList) {
@@ -139,4 +145,6 @@ public final class HttpDnsServiceProvider {
       e.printStackTrace();
     }
   }
+
+  public native void hook();
 }

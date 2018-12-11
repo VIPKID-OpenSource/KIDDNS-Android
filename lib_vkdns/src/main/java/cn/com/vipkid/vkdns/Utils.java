@@ -38,4 +38,8 @@ public class Utils {
     proxyPort = Integer.parseInt(port != null ? port : "-1");
     return proxyHost != null && proxyPort != -1;
   }
+
+  public static String getIp(String host){
+    return HttpDnsServiceProvider.getInstance().getHttpDnsStrategy().getIpByHost(host);
+  }
 }
