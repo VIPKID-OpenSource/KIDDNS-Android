@@ -1,6 +1,6 @@
 # VKDNS介绍
 
-VKDNS是vipkid移动端开发的基于阿里HttpDns的Java层全局替换方案。具有以下特点：
+VKDNS是vipkid移动端开发的基于阿里HttpDns的Java层全局替换方案(关于WebView的全局替换方案，可以查看Webview_support分支)。具有以下特点：
 
 * 兼容阿里云HttpDns的全部功能
 * 支持接入其他的HttpDns SDK
@@ -9,6 +9,7 @@ VKDNS是vipkid移动端开发的基于阿里HttpDns的Java层全局替换方案�
 * 支持自定义Host拦截
 * 对原先业务零侵入，接入成本极低
 * 兼容Android19以上版本
+
 
 
 # 用法
@@ -27,7 +28,7 @@ VKDNS是vipkid移动端开发的基于阿里HttpDns的Java层全局替换方案�
 然后接入lib库。
 
 ```
- implementation 'com.github.VIPKID-OpenSource:KIDDNS-Android:last-release'
+ implementation 'com.github.VIPKID-OpenSource:KIDDNS-Android:last-release' //例如v1.0.0
 ```
 
 #### 使用
