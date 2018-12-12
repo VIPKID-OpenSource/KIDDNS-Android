@@ -3,7 +3,6 @@
 //
 
 #include <jni.h>
-#include <stdint.h>
 
 #include <unistd.h>
 #include <dlfcn.h>
@@ -11,14 +10,6 @@
 
 #include <netdb.h>
 
-#include <errno.h>
-#include <fcntl.h>
-#include <pthread.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/mman.h>
-#include <sys/stat.h>
 #include "v_hook.h"
 
 #define TAG_NAME        "httpdns"
@@ -88,7 +79,10 @@ int hook_libc_getaddrinfo() {
 
 extern "C"
 JNIEXPORT void JNICALL
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-parameter"
 Java_cn_com_vipkid_vkdns_HttpDnsServiceProvider_hook(JNIEnv *env, jobject instance) {
+#pragma clang diagnostic pop
 
   env->GetJavaVM(&sjavaVM);
   utils = static_cast<jclass>(env->NewGlobalRef(env->FindClass("cn/com/vipkid/vkdns/Utils")));
