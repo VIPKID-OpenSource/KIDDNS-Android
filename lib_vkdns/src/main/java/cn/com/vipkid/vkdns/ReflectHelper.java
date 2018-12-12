@@ -14,19 +14,20 @@ package cn.com.vipkid.vkdns;
 import android.annotation.SuppressLint;
 import java.lang.reflect.Field;
 
-final class ReflectHelper {
-  static Class getClass(String name) throws ClassNotFoundException {
+@SuppressWarnings("WeakerAccess")
+public final class ReflectHelper {
+  public static Class getClass(String name) throws ClassNotFoundException {
     return Class.forName(name);
   }
 
   @SuppressWarnings("SameParameterValue")
-  static Field getField(Class clz, String fieldName) throws NoSuchFieldException {
+  public static Field getField(Class clz, String fieldName) throws NoSuchFieldException {
     Field field = clz.getField(fieldName);
     field.setAccessible(true);
     return field;
   }
 
-  static Field getAiFlagsField() throws Exception {
+  public static Field getAiFlagsField() throws Exception {
     @SuppressLint("PrivateApi") Class clz = Class.forName("android.system.StructAddrinfo");
     Field field = clz.getDeclaredField("ai_flags");
     field.setAccessible(true);
