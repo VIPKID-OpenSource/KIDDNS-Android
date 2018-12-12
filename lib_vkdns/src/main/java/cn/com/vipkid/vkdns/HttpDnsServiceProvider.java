@@ -58,7 +58,7 @@ public final class HttpDnsServiceProvider {
   private HttpDnsServiceProvider(HttpDnsStrategy strategy,HttpDnsMonitor monitor) {
     mHttpDnsStrategy = strategy;
     mMonitor = monitor;
-//    hookOsInterface();
+    hookOsInterface();
     hook();
   }
 

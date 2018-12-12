@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 import cn.com.vipkid.vkdns.AliHttpDnsStrategy;
 import cn.com.vipkid.vkdns.HttpDnsMonitor;
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     mResult = findViewById(R.id.result);
+    final WebView webView = findViewById(R.id.webview);
+    webView.setWebViewClient(new WebViewClient());
     findViewById(R.id.startParse).setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View v) {
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
             }
           }
         }).start();
+        webView.loadUrl("http://parent-app.vipkid.com.cn");
       }
     });
 
@@ -59,8 +63,7 @@ public class MainActivity extends AppCompatActivity {
       }
     });
 
-    WebView webView = findViewById(R.id.webview);
-    webView.loadUrl("http://parent-app.vipkid.com.cn");
+
 
   }
 }
