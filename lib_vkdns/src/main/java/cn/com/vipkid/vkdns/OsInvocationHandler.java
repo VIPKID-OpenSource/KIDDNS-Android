@@ -39,9 +39,16 @@ public final class OsInvocationHandler implements InvocationHandler {
         e.printStackTrace();
       }
 
+      int mAiFlagsValue = -1;
+      try {
+        mAiFlagsValue = ReflectHelper.getAINUMERICHOST();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+
       if (args[0] instanceof String
-          && mAiFlagsField != null
-          && ((int) mAiFlagsField.get(args[1]) != OsConstants.AI_NUMERICHOST)) {
+          && mAiFlagsField != null && mAiFlagsValue >= 0
+          && ((int) mAiFlagsField.get(args[1]) != mAiFlagsValue)) {
         String host = (String) args[0];
         boolean shouldUse = HttpDnsServiceProvider.getInstance().shouldUseHttpDns(host);
         String ip = HttpDnsServiceProvider.getInstance().

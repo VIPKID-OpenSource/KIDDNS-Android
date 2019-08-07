@@ -13,6 +13,9 @@ package cn.com.vipkid.vkdns;
 
 import android.annotation.SuppressLint;
 import java.lang.reflect.Field;
+import android.os.Build.VERSION;
+import android.os.Build.VERSION_CODES;
+
 
 @SuppressWarnings("WeakerAccess")
 public final class ReflectHelper {
@@ -27,10 +30,29 @@ public final class ReflectHelper {
     return field;
   }
 
+
   public static Field getAiFlagsField() throws Exception {
-    @SuppressLint("PrivateApi") Class clz = Class.forName("android.system.StructAddrinfo");
+    Class clz;
+    if (VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP) {
+      clz = Class.forName("android.system.StructAddrinfo");
+    }else {
+      clz = Class.forName("libcore.io.StructAddrinfo");
+    }
     Field field = clz.getDeclaredField("ai_flags");
     field.setAccessible(true);
     return field;
   }
+
+  public static int getAINUMERICHOST() throws Exception{
+    Class clz;
+    if (VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP) {
+      clz = Class.forName("android.system.OsConstants");
+    }else {
+      clz = Class.forName("libcore.io.OsConstants");
+    }
+    Field field = clz.getField("AI_NUMERICHOST");
+    field.setAccessible(true);
+    return (int) field.get(null);
+  }
+
 }
