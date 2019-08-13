@@ -6,7 +6,7 @@ package com.vipkid.vkdns;
 //  \_/ |_| .__/|_|\_\_|\__,_|
 //        |_|
 
-/* guolei2@vipkid.com.cn
+/*
  *
  *2018/11/6
  */
